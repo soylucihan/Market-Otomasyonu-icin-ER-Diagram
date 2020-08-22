@@ -1,0 +1,99 @@
+***********************************************
+*Kullanıcılar tablosu*
+---------------------
+*Her bir kullanıcının Kullanıcı_id, Adı, Soyadı, Tc'si, Adresi vardır
+*Kullanici_id int(11), Adi varchar(25), Soyadi varchar(25),Tc varchar(11),Telefon varchar(11), Adres varchar(500) tipinde veriler alacaktır
+*Tüm alanlar doldurulmak zorundadır
+*Kullanıcı_id alanı PRIMARY KEY ve int türündedir
+*Main tablosundaki Kullanici_id alanı ile bire-bir ilişkiye sahiptir
+
+***********************************************
+*Main tablosu*
+---------------------
+*Her bir Ana işlemin Kullanıcı_id,Urun_id , Tarih, Islem_turu_id vardır
+*Kullanıcı_id int(11),Urun_id int(11), Tarih (date), Islem_turu_id int(11) tipinde veriler alacaktır
+*Tüm alanlar doldurulmak zorundadır
+*Kayit_id alanı PRIMARY KEY ve int türündedir
+*Urun_id ve Islem_turu_id FOREIGN KEY ve int türündedir.
+*Kullanicilar tablosundaki Kullanici_id alanı ile bire-bir ilişkiye sahiptir
+*Urunler tablosundaki Urun_id alanı ile bire-bir ilişkiye sahiptir
+*Islem_turleri tablosundaki Islem_turu_id alanı ile bire-bir ilişkiye sahiptir
+
+***********************************************
+*Urunler tablosu*
+---------------------
+*Her bir Urunun Urun_id,Urun_adi , Alis_fiyati, Satis_fiyati, Urun_turu_id, Stok_miktari, Bolum_id ' si vardır
+*Urun_id int(11),Urun_adi varchar(50), Alis_fiyati double, Satis_fiyati double, Urun_turu_id int(11), Stok_miktari int(11), Bolum_id int(11) tipinde veriler alacaktır
+*Tüm alanlar doldurulmak zorundadır
+*Urun_id alanı PRIMARY KEY ve int türündedir
+*Urun_turu_id ve Bolum_id FOREIGN KEY ve int türündedir.
+*Urun_Turleri tablosundaki urun_turu_id alanı ile bire-bir ilişkiye sahiptir
+*Bolumler tablosundaki Bolum_id alanı ile bire-bir ilişkiye sahiptir
+
+
+***********************************************
+*Bolumler tablosu*
+---------------------
+*Her bir Bölümün Bolum_id, Bolum_adi , Lokasyon ' u vardır
+*Bolum_id int(11), Bolum_adi varchar(25) , Lokasyon varchar(25) tipinde veriler alacaktır
+*Tüm alanlar doldurulmak zorundadır
+*Bolum_id alanı PRIMARY KEY ve int türündedir
+*Urunler tablosundaki Bolum_id alanı ile bire-bir ilişkiye sahiptir
+
+***********************************************
+*Urun_turleri tablosu*
+---------------------
+*Her bir Urun türünün Urun_turu_id, Urun_turu_adi, Aciklama ' sı vardır
+*Urun_turu_id int(11), Urun_turu_adi varchar(25), Aciklama varchar(500) tipinde veriler alacaktır
+*Aciklama hariç tüm alanlar doldurulmak zorundadır
+*Urun_turu_id alanı PRIMARY KEY ve int türündedir
+*Urunler tablosundaki Urun_turu_id alanı ile bire-bir ilişkiye sahiptir
+
+
+***********************************************
+*Islemler tablosu*
+---------------------
+*Her bir İşlemin Islem_turu_id, Islem_turu_adi vardır
+*Islem_turu_id int(11), Islem_turu_adi varchar(20) tipinde veriler alacaktır
+*Tüm alanlar doldurulmak zorundadır
+*Islem_turu_id alanı PRIMARY KEY ve int türündedir
+*Main tablosundaki Islem_turu_id alanı ile bire-bir ilişkiye sahiptir
+
+***********************************************
+*Cariler tablosu*
+---------------------
+*Her bir Carinin Cari_id, Cari_adi, Adres ve Telefon ' u vardır
+*Cari_id int(11), Cari_adi varchar(50), Adres varchar(500), Telefon varchar(11) tipinde veriler alacaktır
+*Tüm alanlar doldurulmak zorundadır
+*Cari_id alanı PRIMARY KEY ve int türündedir
+*Alacaklar tablosundaki Cari_id alanı ile bire-bir ilişkiye sahiptir
+
+***********************************************
+*Alacaklar tablosu*
+---------------------
+*Her bir Alacağın Alacak_id, Cari_id, Alacak_tarihi , Alacak_tutari  vardır
+*Alacak_id int(11) , Cari_id int(11) , Alacak_tarihi date , Alacak_tutari double tipinde veriler alacaktır
+*Tüm alanlar doldurulmak zorundadır
+*Alacak_id alanı PRIMARY KEY ve int türündedir
+*Cari_id alanı FOREIGN KEY ve int türündedir
+*Cariler tablosundaki Cari_id alanı ile bire-bir ilişkiye sahiptir
+
+***********************************************
+*Tedarikciler tablosu*
+---------------------
+*Her bir Tedarikcinin Tedarikci_id, Tedarikci_adi, Adres , Telefon , Hesap_no ' su vardır
+*Tedarikci_id int(11), Tedarikci_adi varchar(50), Adres varchar(500) , Telefon varchar(11) , Hesap_no varchar(26) tipinde veriler alacaktır
+*Hesap_no hariç tüm alanlar doldurulmak zorundadır
+*Tedarikci_id alanı PRIMARY KEY ve int türündedir
+*Borclar tablosundaki Tedarikci_id alanı ile bire-bir ilişkiye sahiptir
+
+***********************************************
+*Borclar tablosu*
+---------------------
+*Her bir Borcun Borc_id, Tedarikci_id, Borc_tutari , Borc_tarihi vardır
+*Borc_id int(11), Tedarikci_id int(11), Borc_tutari double, Borc_tarihi date tipinde veriler alacaktır
+*Tüm alanlar doldurulmak zorundadır
+*Borc_id alanı PRIMARY KEY ve int türündedir
+*Tedarikciler tablosundaki Tedarikci_id alanı ile bire-bir ilişkiye sahiptir
+
+***********************************************
